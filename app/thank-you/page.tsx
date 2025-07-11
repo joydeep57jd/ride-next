@@ -30,7 +30,7 @@ export default function ThankYouPage() {
         Thank You
       </h1>
       <p className="text-lg sm:text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-6 text-center">
-        For Booking Our Cab Service
+        For Booking Our Car Service
       </p>
       <p className="text-sm sm:text-md md:text-lg font-semibold text-gray-600 dark:text-gray-400 mb-8 text-center">
         Call us if you have any query : {PHONE_NUMBER}
@@ -38,7 +38,7 @@ export default function ThankYouPage() {
       <div className="mb-8 w-full max-w-xs sm:max-w-sm md:max-w-md">
         <Image
           src={CarImages["Lincoln MKT Sedan"]}
-          alt="Cab Service Vehicle"
+          alt="Car Service Vehicle"
           width={400}
           height={200}
           className="w-full h-auto object-contain"

@@ -12,7 +12,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const EMAIL_FROM = process.env.EMAIL_FROM || "no-reply@ridebooking.com";
+const EMAIL_FROM = process.env.EMAIL_FROM || "reservations@metrodtwsedan.com";
 const COMPANY_EMAIL = process.env.COMPANY_EMAIL || process.env.SECONDARY_COMPANY_EMAIL;
 
 export async function POST(req: NextRequest) {
@@ -52,17 +52,18 @@ export async function POST(req: NextRequest) {
       } is confirmed! Booking ID: ${bookingId}`,
       html: customerEmailTemplate(body),
     };
-
-    const toCompany = {
+    
+    const toCompany = {      
       from: `Metro DTW Sedan <${EMAIL_FROM}>`,
       to: COMPANY_EMAIL,
-      subject: `New Booking Notification - ${bookingId} - ${customer.name}`,
+      subject: `Metro DTW Sedan Reservation Confirmation`,
       text: `New booking received. Contact ${customer.name} at ${
         customer.countryCode
       }${customer.phone} for payment confirmation. Booking ID: ${bookingId}${
         returnTrip ? ` Includes return from ${returnTrip.returnDropoff}` : ""
       }`,
       html: companyEmailTemplate(body),
+      replyTo: customer.email, // <-- replies go here
     };
 
     // Send both emails concurrently

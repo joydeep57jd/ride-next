@@ -130,7 +130,7 @@ export default function SummaryView() {
       setIsLoading(false);
       setMessage({
         type: "success",
-        text: "Your reservations have been successfully confirmed! A member of our team will send you a confirmation email shortly.",
+        text: "Your request has been received. A team member will review your request and send a confirmation email shortly. Below are the details of your booking.",
         bookingId: bookingData.bookingId,
       });
     } catch (error) {
@@ -162,7 +162,7 @@ export default function SummaryView() {
       setIsLoading(false);
       setMessage({
         type: "success",
-        text: "Your reservations have been successfully confirmed! A member of our team will send you a confirmation email shortly.",
+        text: "Your request has been received. A team member will review your request and send a confirmation email shortly. Below are the details of your booking.",
         bookingId: bookingData.bookingId,
       });
     } catch (error) {

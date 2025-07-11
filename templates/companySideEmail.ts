@@ -208,9 +208,6 @@ export const companyEmailTemplate = (booking: BookingData) => `
                 : ""
             }
           </table>
-          <p style="color: #555; font-size: 16px; line-height: 1.5;">
-            Please contact the customer as soon as possible to confirm payment and arrange the ride.
-          </p>
         </td>
       </tr>
       <tr>

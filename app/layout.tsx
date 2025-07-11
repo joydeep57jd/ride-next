@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Footer, Header } from "@/components";
 import { BookingProvider } from "@/context/BookingContext";
+import Script from "next/script"; // ✅ Import Next.js Script
 
 export const metadata: Metadata = {
   title: 'Ride Reservation | Metro DTW Sedan',
@@ -46,6 +47,19 @@ export default function RootLayout({
         src={`https://maps.googleapis.com/maps/api/js?key=${GOOGLE_API_KEY}&libraries=places`}
         async
       ></script>
+       {/* ✅ Google Analytics (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-QS6S1V1872"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-QS6S1V1872');
+          `}
+        </Script>
     </html> 
   );
 }
