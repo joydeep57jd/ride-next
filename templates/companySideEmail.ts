@@ -24,7 +24,7 @@ export const companyEmailTemplate = (booking: BookingData) => `
             booking.bookingId
           }) - ${booking.customer.name}</h2>
           <p style="color: #555; font-size: 16px; line-height: 1.5;">
-            A new booking has been made. Please contact the customer to confirm payment and finalize details.
+            A new booking has been made.
           </p>
           <a href="tel:${`${booking.customer.countryCode}${booking.customer.phone}`}" style="display: inline-block; padding: 12px 24px; background-color: #d32f2f; color: #ffffff; text-decoration: none; border-radius: 4px; font-size: 16px; margin: 20px 0;">
             Call Customer

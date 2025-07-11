@@ -471,18 +471,16 @@ export default function Step2Form({ formRef }: Step2FormProps) {
           <div>
             <Input
               label="Passengers"
-              type="number"
+              type="text"
               min={1}
               max={99}
               className="p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 bg-white text-black placeholder-gray-400 dark:bg-[#181818] dark:border-gray-600 dark:text-white dark:placeholder-gray-500"
-              {...register("passengers", { valueAsNumber: true })}
+              {...register("passengers", { valueAsNumber: true, })}
               onChange={handleFieldChange}
               onKeyUp={(e) => {
                 const value = Number(e.currentTarget.value);
                 if (value > 99) {
                   setValue("passengers", 99, { shouldValidate: true });
-                }else if (value < 1){
-                  setValue("passengers", 1, { shouldValidate: true });
                 }
               }}
               aria-invalid={errors.passengers ? "true" : "false"}
