@@ -15,7 +15,7 @@ export const customerEmailTemplate = (booking: BookingData) => `
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>New Booking Notification</title>
 </head>
-<body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f4f4f4;">
+<body style="margin: 0; padding: 0; padding-top:20px; font-family: Arial, sans-serif; background-color: #f4f4f4;">
   <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
     
     <!-- Header -->
@@ -40,13 +40,13 @@ export const customerEmailTemplate = (booking: BookingData) => `
 
     <!-- Call Button -->
     <tr>
-      <td style="padding: 20px;">
-        <a href="tel:${COMPANY_PHONE}" style="display: inline-block; padding: 12px 20px; background-color: #007bff; color: #ffffff; text-decoration: none; border-radius: 6px; font-size: 16px;">
+      <td style="padding: 20px; padding-top:0px;">
+        <a href="tel:${COMPANY_PHONE}" style="display: inline-block; padding: 12px 20px; background-color: #007bff; color: #ffffff; text-decoration: none; border-radius: 6px; font-size: 16px; margin:20px 0;">
           Call Metro DTW Sedan
         </a>
 
     <!-- Booking Info -->
-        <table role="presentation" width="100%" cellspacing="0" cellpadding="10" style="background-color: #f9f9f9; border-radius: 0;">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="10" style="background-color: #f9f9f9; border-radius: 0; margin:20px 0">
           <tr>
             <td style="font-weight: bold; color: #333;">Customer Name:</td>
             <td style="color: #555;">${booking.customer?.name}</td>
@@ -204,6 +204,15 @@ export const customerEmailTemplate = (booking: BookingData) => `
         </table>
       </td>
     </tr>
+     <tr>
+        <td style="padding: 20px; text-align: center; background-color: #f4f4f4; border-radius: 0 0 8px 8px;">
+          <p style="color: #777; font-size: 14px; margin: 0;">
+            © ${new Date().getFullYear()} ${COMPANY_NAME}.<br>
+            <a href="${COMPANY_WEBSITE}" style="color: #1a73e8; text-decoration: none;">Visit our website</a> | 
+            <a href="${COMPANY_WEBSITE}/privacy-policy/" style="color: #1a73e8; text-decoration: none;">Privacy Policy</a>
+          </p>
+        </td>
+      </tr>
   </table>
 </body>
 </html>

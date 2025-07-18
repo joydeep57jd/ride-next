@@ -11,7 +11,7 @@ export const companyEmailTemplate = (booking: BookingData) => `
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Booking Notification</title>
   </head>
-  <body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f4f4f4;">
+  <body style="margin: 0; padding: 0; padding-top:20px; font-family: Arial, sans-serif; background-color: #f4f4f4;">
     <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
       <tr>
         <td style="padding: 20px; text-align: center; background-color: #d32f2f; border-radius: 8px 8px 0 0;">

@@ -53,3 +53,10 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+@media (prefers-color-scheme: dark){
+  input[type="datetime-local"]:-webkit-calendar-picker-indicator{
+    filter: invert(1);
+    opacity: 1;
+  }
+}

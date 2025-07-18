@@ -13,6 +13,7 @@ import { FaPlus, FaMinus } from "react-icons/fa";
 import { useDebouncedCallback } from "use-debounce";
 import { RefObject } from "react";
 import dynamic from "next/dynamic";
+import { nan } from "zod";
 const MapView = dynamic(() => import("./ui/MapComponent"), { ssr: false });
 
 declare global {
@@ -477,11 +478,26 @@ export default function Step2Form({ formRef }: Step2FormProps) {
               className="p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 bg-white text-black placeholder-gray-400 dark:bg-[#181818] dark:border-gray-600 dark:text-white dark:placeholder-gray-500"
               {...register("passengers", { valueAsNumber: true, })}
               onChange={handleFieldChange}
-              onKeyUp={(e) => {
-                const value = Number(e.currentTarget.value);
-                if (value > 99) {
-                  setValue("passengers", 99, { shouldValidate: true });
-                }
+              onKeyUp={(e) => {                
+                const input = e.currentTarget.value;
+                    // Only allow digits
+                    if (!/^\d*$/.test(input)) {
+                      if(input =='NaN'){
+                        setValue("passengers",1);
+                      }else{
+                      setValue("passengers",Number(input.slice(0,-1)));
+                      }
+                    }else{
+                      if(input.length>1){
+                        if (input[0] === '0') {
+                            setValue("passengers",Number(input.slice(1)));
+                        }
+                      }
+                    }
+                
+                //if (value > 99) {
+                  //setValue("passengers", 99, { shouldValidate: true });
+                //}
               }}
               aria-invalid={errors.passengers ? "true" : "false"}
             />
